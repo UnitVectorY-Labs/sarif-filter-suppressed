@@ -1,0 +1,25 @@
+name: "sarif-filter-suppressed"
+description: "Remove suppressed findings from SARIF reports before upload"
+author: "unitvectory-labs"
+
+inputs:
+  input:
+    description: "Path to the original SARIF 2.1.0 report"
+    required: true
+  output:
+    description: "Path to write the filtered SARIF report; must differ from input"
+    required: true
+
+outputs:
+  original:
+    description: "Total number of results in the original report"
+  removed:
+    description: "Number of suppressed results removed"
+  retained:
+    description: "Number of results retained"
+  output:
+    description: "Absolute path to the filtered SARIF report"
+
+runs:
+  using: "node24"
+  main: "src/index.js"
